@@ -1,0 +1,14 @@
+{
+  "name": "vis",
+  "version": "0.1.0",
+  "files": [
+    "vis_bg.wasm",
+    "vis.js",
+    "vis.d.ts"
+  ],
+  "module": "vis.js",
+  "types": "vis.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

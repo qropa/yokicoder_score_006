@@ -24,13 +24,22 @@ async function updateInOut() {
     updateResult();
     if ( selectedDirHandle == null ) { updateResult(); return; }
     try {
-        const outfilename = `${String(seed).padStart(document.getElementById("zfill").value, '0')}.${document.getElementById("extension").value}`;
+        const outfilename = `${String(seed).padStart(document.getElementById("zfill").value, '0')}.${document.getElementById("extension_out").value}`;
         const fileHandle = await selectedDirHandle.getFileHandle(outfilename);
         const file = await fileHandle.getFile();
         const text = await file.text();
         output.value = text;
     } catch(err) {
         output.value = '';
+    }
+    try {
+        const errorfilename = `${String(seed).padStart(document.getElementById("zfill").value, '0')}.${document.getElementById("extension_error").value}`;
+        const fileHandle = await selectedDirHandle.getFileHandle(errorfilename);
+        const file = await fileHandle.getFile();
+        const text = await file.text();
+        errorbox.value = text;
+    } catch(err) {
+        errorbox.value = '';
     }
 
     updateResult();

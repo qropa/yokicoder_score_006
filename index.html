@@ -19,6 +19,10 @@
         <p>
             <label for="output">Output:</label>
             <input type="button" id="selectDirectory" value="Select Directory" onclick="fileselect()">&emsp;
+            <label for="zfill">0埋桁:</label>
+            <input type="number" id="zfill" value="4" min="1" max="8" onchange="updateInOut()">&emsp;
+            <label for="extension">拡張子:</label>
+            <textarea id="extension" rows="1" style="width: 60px;" onchange="updateInOut()">txt</textarea>&emsp;
             <label for="manual"><input type="checkbox" id="manual">manual mode (←↑→ ⌫ keys)</label><br>
             <textarea id="output" rows="4" style="width: 650px;" oninput="updateResult()"></textarea>
         </p>

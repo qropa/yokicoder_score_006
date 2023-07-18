@@ -24,7 +24,8 @@ async function updateInOut() {
     updateResult();
     if ( selectedDirHandle == null ) { updateResult(); return; }
     try {
-        const fileHandle = await selectedDirHandle.getFileHandle(`${String(seed).padStart(4, '0')}.txt`);
+        const outfilename = `${String(seed).padStart(document.getElementById("zfill").value, '0')}.${document.getElementById("extension").value}`;
+        const fileHandle = await selectedDirHandle.getFileHandle(outfilename);
         const file = await fileHandle.getFile();
         const text = await file.text();
         output.value = text;
